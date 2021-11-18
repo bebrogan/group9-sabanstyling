@@ -6,10 +6,10 @@ namespace api.Interfaces
     public interface IClothingDataHandler
     {
          public List<Clothing> Select();
-         public void Delete(Clothing cust);
+         public void Delete(Clothing clothing);
 
-         public void Insert(Clothing cust);
+         public void Insert(Clothing clothing);
 
-         public void Update(Clothing cust);
+         public void Update(Clothing clothing);
     }
 }
