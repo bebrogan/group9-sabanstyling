@@ -6,6 +6,11 @@ namespace api.Data
 {
     public class PaymentDataHandler : IPaymentDataHandler
     {
+        private Database db;
+        public PaymentDataHandler()
+        {
+            db = new Database(); 
+        }
         public void Delete(Payment pay)
         {
             throw new System.NotImplementedException();

@@ -1,4 +1,6 @@
 using System;
+using api.Data;
+using api.Interfaces;
 
 namespace api.Models
 {
@@ -11,6 +13,12 @@ namespace api.Models
         public int Phone {get; set;}
         public string Why {get; set;}
         public DateTime Date {get; set;}
+        public ICustomerDataHandler dataHandler {get; set;}
+
+        public Customer()
+        {
+            dataHandler = new CustomerDataHandler(); 
+        }
 
     }
 }

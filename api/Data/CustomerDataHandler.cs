@@ -6,6 +6,11 @@ namespace api.Data
 {
     public class CustomerDataHandler : ICustomerDataHandler
     {
+        private Database db;
+        public CustomerDataHandler()
+        {
+            db = new Database(); 
+        }
         public void Delete(Customer cust)
         {
             throw new System.NotImplementedException();

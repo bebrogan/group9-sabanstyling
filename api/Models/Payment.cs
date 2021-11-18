@@ -1,3 +1,6 @@
+using api.Data;
+using api.Interfaces;
+
 namespace api.Models
 {
     public class Payment
@@ -11,6 +14,12 @@ namespace api.Models
         public string City{get;set;}
         public string State{get;set;}
         public int Zip{get;set;}
+        public IPaymentDataHandler dataHandler {get; set;}
+
+        public Payment()
+        {
+            dataHandler = new PaymentDataHandler(); 
+        }
     
 
     }

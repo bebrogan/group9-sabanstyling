@@ -6,6 +6,11 @@ namespace api.Data
 {
     public class EmployeeDataHandler : IEmployeeDataHandler
     {
+        private Database db;
+        public EmployeeDataHandler()
+        {
+            db = new Database(); 
+        }
         public void Delete(Employee emp)
         {
             throw new System.NotImplementedException();

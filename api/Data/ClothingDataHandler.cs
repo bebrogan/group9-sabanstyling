@@ -6,6 +6,11 @@ namespace api.Data
 {
     public class ClothingDataHandler : IClothingDataHandler
     {
+        private Database db;
+        public ClothingDataHandler()
+        {
+            db = new Database(); 
+        }
         public void Delete(Clothing cloth)
         {
             throw new System.NotImplementedException();

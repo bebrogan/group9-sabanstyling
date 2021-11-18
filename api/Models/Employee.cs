@@ -1,3 +1,6 @@
+using api.Data;
+using api.Interfaces;
+
 namespace api.Models
 {
     public class Employee
@@ -7,6 +10,12 @@ namespace api.Models
         public string LastName {get; set;}
         public string Email {get; set;}
         public string Password {get; set;}
+        public IEmployeeDataHandler dataHandler {get; set;}
+
+        public Employee()
+        {
+            dataHandler = new EmployeeDataHandler(); 
+        }
 
     }
 }
