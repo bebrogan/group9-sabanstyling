@@ -17,11 +17,11 @@ namespace api.Data
 
         public Database()
         {
-            string server = "x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-            string name = "b8pj39dyyag3rbk5";
+            string server = "yjo6uubt3u5c16az.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+            string name = "qhvqdeorqiuxc8oq";
             string port = "3306";
-            string username = "nrz1i7k8xtfinxts";
-            string password = "msn8syrov201tsrj";
+            string username = "e1vo94ib9fgu66n7";
+            string password = "sfnp6vdqk32xhjqa";
             
             Console.WriteLine("got the datbase " + server);
 
