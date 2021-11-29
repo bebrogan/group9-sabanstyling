@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Dynamic;
 using api.Interfaces;
 using api.Models;
 
@@ -22,8 +23,8 @@ namespace api.Data
 
         public void Insert(Clothing cloth)
         {
-            string sql = "INSERT INTO customer (Id, Size, Type, Link, Price)";
-            sql += "VALUES (@ID, @Size, @Type, @Link, @Price)";
+            string sql = "INSERT INTO clothing (clothingID, size, type, link, price)";
+            sql += " VALUES (@id, @size, @type, @link, @price)";
 
             var values = GetValues(cloth);
             db.Open();
@@ -33,38 +34,50 @@ namespace api.Data
 
         public List<Clothing> Select()
         {
-            tList<Clothing> myClothing = new List<Clothing>();
-
             db.Open();
+
             string sql = "SELECT * from clothing";
             
             List<ExpandoObject> results = db.Select(sql);
 
+            List<Clothing> cloth = new List<Clothing>();
             foreach(dynamic item in results)
             {
-                Post temp = new Post(){ID = item.id, Size = item.size,
-                Type = item.type,
-                Link = item.link,
-                Price = item.price};
-                myPost.Add(temp);
-
-
+                Clothing temp = new Clothing()
+                {
+                    ID = item.clothingID,  
+                    Size = item.size,
+                    Type = item.type,
+                    Link = item.link,
+                    Price = item.price
+                };
+                
+                cloth.Add(temp);
             }
-            
 
-            // db.Close();
-
-            return myClothing;
+            db.Close();
+            return cloth;
         }
-
         public void Update(Clothing cloth)
         {
             string sql = "UPDATE clothing SET id=@ID, size=@Size, type=@Type, link = @Link, price = @Price WHERE id=@ID";
 
-            var values = GetValues(post);
+            var values = GetValues(cloth);
             db.Open();
             db.Update(sql, values);
             db.Close();
+        }
+        public Dictionary<string, object> GetValues(Clothing cloth)
+        {
+            var values = new Dictionary<string,object>()
+            {
+                {"@id", cloth.ID},
+                {"@size", cloth.Size},
+                {"@type", cloth.Type},
+                {"@link", cloth.Link},
+                {"@price", cloth.Price},
+            }; 
+            return values; 
         }
     }
 }
