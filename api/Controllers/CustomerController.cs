@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
+using api.Models;
+using api.Interfaces;
+using api.Data;
 
 namespace api.Controllers
 {
@@ -15,9 +18,10 @@ namespace api.Controllers
         // GET: api/Customer
         [EnableCors("OpenPolicy")]
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Customer> Get()
         {
-            return new string[] { "value1", "value2" };
+            ICustomerDataHandler dataHandler = new CustomerDataHandler();
+            return dataHandler.Select(); 
         }
 
         // GET: api/Customer/5
@@ -31,15 +35,17 @@ namespace api.Controllers
         // POST: api/Customer
         [EnableCors("OpenPolicy")]
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Customer value)
         {
+            value.dataHandler.Insert(value);
         }
 
         // PUT: api/Customer/5
         [EnableCors("OpenPolicy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Clothing value)
         {
+            value.dataHandler.Update(value);
         }
 
         // DELETE: api/Customer/5
