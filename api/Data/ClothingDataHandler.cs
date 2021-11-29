@@ -13,7 +13,7 @@ namespace api.Data
         }
         public void Delete(Clothing cloth)
         {
-            string sql = "UPDATE post SET deleted= 'Y' WHERE id=@Id";
+            string sql = "UPDATE post SET deleted= 'Y' WHERE clothingID=@ID";
             var values = GetValues(cloth);
             db.Open();
             db.Update(sql, values);
@@ -22,7 +22,7 @@ namespace api.Data
 
         public void Insert(Clothing cloth)
         {
-            string sql = "INSERT INTO customer (Id, Size, Type, Link, Price)";
+            string sql = "INSERT INTO customer (clothingID, Size, Type, Link, Price)";
             sql += "VALUES (@ID, @Size, @Type, @Link, @Price)";
 
             var values = GetValues(cloth);
@@ -42,7 +42,7 @@ namespace api.Data
 
             foreach(dynamic item in results)
             {
-                Post temp = new Post(){ID = item.id, Size = item.size,
+                Post temp = new Post(){ID = item.clothingID, Size = item.size,
                 Type = item.type,
                 Link = item.link,
                 Price = item.price};
@@ -59,9 +59,9 @@ namespace api.Data
 
         public void Update(Clothing cloth)
         {
-            string sql = "UPDATE clothing SET id=@ID, size=@Size, type=@Type, link = @Link, price = @Price WHERE id=@ID";
+            string sql = "UPDATE clothing SET clothingID=@ID, size=@Size, type=@Type, link = @Link, price = @Price WHERE clothingID=@ID";
 
-            var values = GetValues(post);
+            var values = GetValues(cloth);
             db.Open();
             db.Update(sql, values);
             db.Close();
