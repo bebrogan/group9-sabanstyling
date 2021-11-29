@@ -23,8 +23,8 @@ namespace api.Data
 
         public void Insert(Customer cust)
         {
-            string sql = "INSERT INTO customer (customerID, email, custfName, custlName, phone, why, date)";
-            sql += "VALUES (@id, @email, @firstName, @lastName, @phone, @why, @date)";
+            string sql = "INSERT INTO customer (customerID, email, custfName, custlName, phone, why, date, password)";
+            sql += "VALUES (@id, @email, @firstName, @lastName, @phone, @why, @date, @password)";
 
             var values = GetValues(cust);
             db.Open();
@@ -52,6 +52,7 @@ namespace api.Data
                     Phone = item.phone,
                     Why = item.why,
                     Date = item.date,
+                    Password = item.password
                 }; 
                 cust.Add(temp); 
             }
@@ -62,10 +63,45 @@ namespace api.Data
 
         public void Update(Customer cust)
         {
-            string sql = "UPDATE customer SET id=@ID, email=@Email, why = @Why, phone = @Phone, WHERE id=@ID";
+            string sql = "UPDATE customer SET ";
 
-            var values = GetValues(cust);
-            db.Open();
+            var values = GetValues(cust); 
+            foreach(var p in values)
+            {
+                if(p.Key != "ID" && p.Value != null)   
+                {
+                    switch(p.Key)
+                    {
+                        case "@id":
+                            sql += "customerID = @id,";
+                            break; 
+                        case "@email":
+                            sql += "email = @email,";
+                            break; 
+                        case "@firstName":
+                            sql += "custfName = @firstName,";
+                            break; 
+                        case "@lastName":
+                            sql += "custlName = @lastName,";
+                            break; 
+                        case "@phone":
+                            sql += "phone = @phone,";
+                            break; 
+                        case "@why":
+                            sql += "why = @why,";
+                            break; 
+                        case "@date":
+                            sql += "date = @date,";
+                            break; 
+                        case "@password":
+                            sql += "password = @password,";
+                            break; 
+                    }
+                }
+            }
+            sql = sql.Remove(sql.Length - 1, 1);
+            sql += " WHERE id=@id"; 
+            db.Open(); 
             db.Update(sql, values);
             db.Close();
         }
@@ -80,6 +116,7 @@ namespace api.Data
                 {"@phone", cust.Phone},
                 {"@why", cust.Why},
                 {"@date", cust.Date},
+                {"@password", cust.Password},
             }; 
             return values; 
         }

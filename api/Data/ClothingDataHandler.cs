@@ -62,10 +62,33 @@ namespace api.Data
 
         public void Update(Clothing cloth)
         {
-            string sql = "UPDATE clothing SET clothingID=@ID, size=@Size, type=@Type, link = @Link, price = @Price WHERE clothingID=@ID";
+            string sql = "UPDATE clothing SET ";
 
-            var values = GetValues(cloth);
-            db.Open();
+            var values = GetValues(cloth); 
+            foreach(var p in values)
+            {
+                if(p.Key != "ID" && p.Value != null)   
+                {
+                    switch(p.Key)
+                    {
+                        case "@size":
+                            sql += "size = @size,";
+                            break; 
+                        case "@type":
+                            sql += "type = @type,";
+                            break; 
+                        case "@link":
+                            sql += "link = @link,";
+                            break; 
+                        case "@price":
+                            sql += "price = @price,";
+                            break; 
+                    }
+                }
+            }
+            sql = sql.Remove(sql.Length - 1, 1);
+            sql += " WHERE id=@id"; 
+            db.Open(); 
             db.Update(sql, values);
             db.Close();
         }

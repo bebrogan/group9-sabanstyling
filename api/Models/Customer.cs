@@ -13,6 +13,7 @@ namespace api.Models
         public int Phone {get; set;}
         public string Why {get; set;}
         public DateTime Date {get; set;}
+        public string Password {get; set;}
         public ICustomerDataHandler dataHandler {get; set;}
 
         public Customer()
