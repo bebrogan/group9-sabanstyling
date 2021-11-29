@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
+using api.Models;
+using api.Interfaces;
+using api.Data;
 
 namespace api.Controllers
 {
@@ -15,9 +18,10 @@ namespace api.Controllers
         // GET: api/Employee
         [EnableCors("OpenPolicy")]
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Employee> Get()
         {
-            return new string[] { "value1", "value2" };
+            IEmployeeDataHandler dataHandler = new EmployeeDataHandler();
+            return dataHandler.Select(); 
         }
 
         // GET: api/Employee/5
@@ -31,15 +35,17 @@ namespace api.Controllers
         // POST: api/Employee
         [EnableCors("OpenPolicy")]
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Employee value)
         {
+            value.dataHandler.Insert(value);
         }
 
         // PUT: api/Employee/5
         [EnableCors("OpenPolicy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Employee value)
         {
+            value.dataHandler.Update(value); 
         }
 
         // DELETE: api/Employee/5

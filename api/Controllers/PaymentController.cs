@@ -13,18 +13,18 @@ namespace api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClothingController : ControllerBase
+    public class PaymentController : ControllerBase
     {
-        // GET: api/Clothing
+        // GET: api/Payment
         [EnableCors("OpenPolicy")]
         [HttpGet]
-        public List<Clothing> Get()
+        public List<Payment> Get()
         {
-            IClothingDataHandler dataHandler = new ClothingDataHandler();
+            IPaymentDataHandler dataHandler = new PaymentDataHandler();
             return dataHandler.Select(); 
         }
 
-        // GET: api/Clothing/5
+        // GET: api/Payment/5
         [EnableCors("OpenPolicy")]
         [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
@@ -32,23 +32,23 @@ namespace api.Controllers
             return "value";
         }
 
-        // POST: api/Clothing
+        // POST: api/Payment
         [EnableCors("OpenPolicy")]
         [HttpPost]
-        public void Post([FromBody] Clothing value)
+        public void Post([FromBody] Payment value)
         {
             value.dataHandler.Insert(value); 
         }
 
-        // PUT: api/Clothing/5
+        // PUT: api/Payment/5
         [EnableCors("OpenPolicy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Clothing value)
+        public void Put(int id, [FromBody] Payment value)
         {
             value.dataHandler.Update(value); 
         }
 
-        // DELETE: api/Clothing/5
+        // DELETE: api/Payment/5
         [EnableCors("OpenPolicy")]
         [HttpDelete("{id}")]
         public void Delete(int id)
