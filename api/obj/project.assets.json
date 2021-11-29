@@ -7049,19 +7049,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\baile\\.nuget\\packages\\": {}
+    "/Users/brendanbrogan/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\source\\repos\\finalproject\\group9-sabanstyling\\api\\api.csproj",
+      "projectUniqueName": "/Users/brendanbrogan/Documents/repos/sabanstyling/group9-sabanstyling/api/api.csproj",
       "projectName": "api",
-      "projectPath": "C:\\source\\repos\\finalproject\\group9-sabanstyling\\api\\api.csproj",
-      "packagesPath": "C:\\Users\\baile\\.nuget\\packages\\",
-      "outputPath": "C:\\source\\repos\\finalproject\\group9-sabanstyling\\api\\obj\\",
+      "projectPath": "/Users/brendanbrogan/Documents/repos/sabanstyling/group9-sabanstyling/api/api.csproj",
+      "packagesPath": "/Users/brendanbrogan/.nuget/packages/",
+      "outputPath": "/Users/brendanbrogan/Documents/repos/sabanstyling/group9-sabanstyling/api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\baile\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/brendanbrogan/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -7108,6 +7108,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-x64",
+            "version": "[5.0.12, 5.0.12]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -7116,7 +7122,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
