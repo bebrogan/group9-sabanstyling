@@ -23,13 +23,9 @@ namespace api.Data
 
         public void Insert(Clothing cloth)
         {
-<<<<<<< HEAD
-            string sql = "INSERT INTO customer (clothingID, Size, Type, Link, Price)";
-            sql += "VALUES (@ID, @Size, @Type, @Link, @Price)";
-=======
             string sql = "INSERT INTO clothing (clothingID, size, type, link, price)";
-            sql += " VALUES (@id, @size, @type, @link, @price)";
->>>>>>> feaa702cf2bb677dbfcef358dd54db8678eac192
+            sql += "VALUES (@id, @size, @type, @link, @price)";
+
 
             var values = GetValues(cloth);
             db.Open();
@@ -48,7 +44,6 @@ namespace api.Data
             List<Clothing> cloth = new List<Clothing>();
             foreach(dynamic item in results)
             {
-<<<<<<< HEAD
                 Clothing temp = new Clothing()
                 {ID = item.clothingID, 
                 Size = item.size,
@@ -60,23 +55,11 @@ namespace api.Data
                 cloth.Add(temp);
 
 
-=======
-                Clothing temp = new Clothing()
-                {
-                    ID = item.clothingID,  
-                    Size = item.size,
-                    Type = item.type,
-                    Link = item.link,
-                    Price = item.price
-                };
-                
-                cloth.Add(temp);
->>>>>>> feaa702cf2bb677dbfcef358dd54db8678eac192
             }
-
             db.Close();
             return cloth;
         }
+
         public void Update(Clothing cloth)
         {
             string sql = "UPDATE clothing SET clothingID=@ID, size=@Size, type=@Type, link = @Link, price = @Price WHERE clothingID=@ID";
