@@ -26,7 +26,7 @@ namespace api.Controllers
 
         // GET: api/Customer/5
         [EnableCors("OpenPolicy")]
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "GetCustomer")]
         public string Get(int id)
         {
             return "value";
@@ -43,7 +43,7 @@ namespace api.Controllers
         // PUT: api/Customer/5
         [EnableCors("OpenPolicy")]
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Clothing value)
+        public void Put(int id, [FromBody] Customer value)
         {
             value.dataHandler.Update(value);
         }

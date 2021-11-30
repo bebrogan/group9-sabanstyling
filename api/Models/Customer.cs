@@ -12,7 +12,6 @@ namespace api.Models
         public string LastName{get; set;}
         public int Phone {get; set;}
         public string Why {get; set;}
-        public DateTime Date {get; set;}
         public string Password {get; set;}
         public ICustomerDataHandler dataHandler {get; set;}
 

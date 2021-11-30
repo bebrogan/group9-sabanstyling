@@ -28,14 +28,14 @@ namespace api
         {
             services.AddCors(options =>
             {
-             options.AddPolicy("AnotherPolicy",
-                 builder =>
-                 {
-                    builder.AllowAnyOrigin()
-                               .AllowAnyHeader()
-                               .AllowAnyMethod();
-                 });
-        }); 
+               options.AddPolicy("AnotherPolicy",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            }); 
 
 
             services.AddControllers();
@@ -56,13 +56,9 @@ namespace api
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseCors();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
