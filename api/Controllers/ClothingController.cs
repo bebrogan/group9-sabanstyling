@@ -26,7 +26,7 @@ namespace api.Controllers
 
         // GET: api/Clothing/5
         [EnableCors("OpenPolicy")]
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}", Name = "GetClothing")]
         public string Get(int id)
         {
             return "value";

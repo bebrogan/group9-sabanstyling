@@ -23,8 +23,8 @@ namespace api.Data
 
         public void Insert(Customer cust)
         {
-            string sql = "INSERT INTO customer (customerID, email, custfName, custlName, phone, why, date, password)";
-            sql += "VALUES (@id, @email, @firstName, @lastName, @phone, @why, @date, @password)";
+            string sql = "INSERT INTO customer (customerID, email, custfName, custlName, phone, why, password)";
+            sql += "VALUES (@id, @email, @firstName, @lastName, @phone, @why, @password)";
 
             var values = GetValues(cust);
             db.Open();
@@ -45,13 +45,12 @@ namespace api.Data
             {
                 Customer temp = new Customer()
                 {
-                    ID = item.id,
+                    ID = item.customerID,
                     Email = item.email,
                     FirstName = item.custfName,
                     LastName = item.custlName,
                     Phone = item.phone,
                     Why = item.why,
-                    Date = item.date,
                     Password = item.password
                 }; 
                 cust.Add(temp); 
@@ -90,9 +89,6 @@ namespace api.Data
                         case "@why":
                             sql += "why = @why,";
                             break; 
-                        case "@date":
-                            sql += "date = @date,";
-                            break; 
                         case "@password":
                             sql += "password = @password,";
                             break; 
@@ -115,7 +111,6 @@ namespace api.Data
                 {"@lastName", cust.LastName},
                 {"@phone", cust.Phone},
                 {"@why", cust.Why},
-                {"@date", cust.Date},
                 {"@password", cust.Password},
             }; 
             return values; 

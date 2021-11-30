@@ -40,11 +40,11 @@ namespace api.Data
             {
                 Employee temp = new Employee()
                 {
-                    ID = item.id,
+                    ID = item.empID,
                     FirstName = item.empfName,
                     LastName = item.emplName,
                     Email = item.empEmail,
-                    Password = item.password,
+                    Password = item.empPassword,
                 }; 
                 emp.Add(temp); 
             }
