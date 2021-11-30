@@ -5,13 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Clean Blog - Start Bootstrap Theme</title>
+        <title>Sign Up / Log In</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
@@ -40,18 +42,70 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>Contact Me</h1>
-                            <span class="subheading">Have questions? I have answers.</span>
+                            <h1>Sign In</h1>
+                            <span class="subheading">Sign into your account here.</span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
+        
+
+        <!-- Working on getting the google sign in working -->
+        <!-- <head>
+            <meta name="google-signin-scope" content="profile email">
+            <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+            <script src="https://apis.google.com/js/platform.js" async defer></script>
+          </head>
+          <body>
+            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+            <script>
+              function onSignIn(googleUser) {
+                // Useful data for your client-side scripts:
+                var profile = googleUser.getBasicProfile();
+                console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                console.log('Full Name: ' + profile.getName());
+                console.log('Given Name: ' + profile.getGivenName());
+                console.log('Family Name: ' + profile.getFamilyName());
+                console.log("Image URL: " + profile.getImageUrl());
+                console.log("Email: " + profile.getEmail());
+        
+                // The ID token you need to pass to your backend:
+                var id_token = googleUser.getAuthResponse().id_token;
+                console.log("ID Token: " + id_token);
+              }
+            </script>
+          </body> -->
+        
         <!-- Main Content-->
         <main class="mb-4">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
+                        <head>
+                            <meta name="google-signin-scope" content="profile email">
+                            <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+                            <script src="https://apis.google.com/js/platform.js" async defer></script>
+                          </head>
+                          <body>
+                            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                            <script>
+                              function onSignIn(googleUser) {
+                                // Useful data for your client-side scripts:
+                                var profile = googleUser.getBasicProfile();
+                                console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                                console.log('Full Name: ' + profile.getName());
+                                console.log('Given Name: ' + profile.getGivenName());
+                                console.log('Family Name: ' + profile.getFamilyName());
+                                console.log("Image URL: " + profile.getImageUrl());
+                                console.log("Email: " + profile.getEmail());
+                        
+                                // The ID token you need to pass to your backend:
+                                var id_token = googleUser.getAuthResponse().id_token;
+                                console.log("ID Token: " + id_token);
+                              }
+                            </script>
+                          </body>
                         <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
                         <div class="my-5">
                             <!-- * * * * * * * * * * * * * * *-->
@@ -61,7 +115,7 @@
                             <!-- To make this form functional, sign up at-->
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
-                            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <!-- <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                                 <div class="form-floating">
                                     <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                                     <label for="name">Name</label>
@@ -83,7 +137,7 @@
                                     <label for="message">Message</label>
                                     <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                                 </div>
-                                <br />
+                                <br /> -->
                                 <!-- Submit success message-->
                                 <!---->
                                 <!-- This is what your users will see when the form-->
@@ -108,7 +162,7 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </main> -->
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
@@ -140,7 +194,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2021</div>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Saban Styling 2021</div>
                     </div>
                 </div>
             </div>
