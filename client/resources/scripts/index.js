@@ -1,8 +1,11 @@
 function handleOnLoad(){
-    const customerUrl = "https://localhost:5001/api/customer"; 
+    const customerUrl = "https://localhost:5001/api/Customer"; 
+    console.log (customerUrl);
 
     fetch(customerUrl).then(function(response){
         return response.json();
+    }).then(function(json){
+        console.log(json);
     }).catch(function(error){
         console.log(error);
     });
