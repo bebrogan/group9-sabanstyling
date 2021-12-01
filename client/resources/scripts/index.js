@@ -15,7 +15,7 @@ function handleOnLoad(){
 function handleOnSubmit(){
     var email = document.getElementById("email").value;
     var firstName = document.getElementById("firstName").value;
-    var lastName = document.getElementById("email").value;
+    var lastName = document.getElementById("lastName").value;
     var phone = document.getElementById("phone").value;
     var why = " ";
     var password = document.getElementById("password").value;
@@ -23,7 +23,7 @@ function handleOnSubmit(){
 
     var customer = {
         Email : email,
-        FirtName : firstName,
+        FirstName : firstName,
         LastName : lastName,
         Phone : phone,
         Why : why,
@@ -35,7 +35,7 @@ function handleOnSubmit(){
 
 function PostCustomer(customer){
     const postCustomerApiUrl = "https://localhost:5001/api/customer"; 
-
+    console.log("hello" + JSON.stringify(customer));
     fetch(postCustomerApiUrl, {
         method: "POST",
         headers: {
@@ -46,4 +46,6 @@ function PostCustomer(customer){
     }).then((response) =>{
         handleOnLoad();
     })
+    document.getElementById("add_after_me").insertAdjacentHTML("afterend",
+                "<div class=\"alert alert-success fade in\" role=\"alert\" id=\"success_message\">Success <i class=\"glyphicon glyphicon-thumbs-up\"></i></div>");
 }
