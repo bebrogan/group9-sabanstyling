@@ -28,7 +28,7 @@ namespace api
         {
             services.AddCors(options =>
             {
-               options.AddPolicy("AnotherPolicy",
+               options.AddPolicy("OpenPolicy",
                     builder =>
                     {
                         builder.AllowAnyOrigin()
