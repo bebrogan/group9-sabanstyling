@@ -80,19 +80,41 @@
         <!-- Main Content-->
         <main class="mb-4">
             <div class="container">
-
                 <form class="well form-horizontal" action=" " method="post"  id="contact_form">
             <fieldset>
+              <div class="login">
+                <!-- <form id = "login" action="">
+                    <label for="fname">Username:</label><br>
+                    <input type="text" id="email" name="email" value="Doe@gmail.com"><br>
+                    <label for="lname">password:</label><br>
+                    <input type="text" id="password" name="password" value="******"><br><br>
+                    <input type="submit" onclick="userOnSubmit()" value="Submit">
+                </form> -->
+                <div class="input-field">
+                  <input id="email" type="email" placeholder="Email" autocomplete="nope">
+                </div>
+                <div class="input-field">
+                  <input id = "password" type="password" placeholder="Password" autocomplete="new-password" aria-autocomplete="list">
+                </div>
+        
+        
+              <div class="action">
+                  <button class="btn btn-primary px-4" type="button" onclick="userOnSubmit()">Sign in</button>
+                  
+              </div>
             
             <!-- Form Name -->
-            <legend><center><h2><b>Registration Form</b></h2></center></legend><br>
             
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Register
+            </button>
             <!-- Text input-->
-            
+          <div class="collapse" id="collapseExample">
+            <legend><center><h2><b>Registration Form</b></h2></center></legend><br>
             <div class="form-group">
               <label class="col-md-4 control-label">First Name</label>  
               <div class="col-md-4 inputGroupContainer">
-              <div class="input-group">
+                <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
               <input  name="first_name" placeholder="First Name" class="form-control"  type="text" id="firstName">
                 </div>
@@ -187,20 +209,21 @@
             
             <!-- Success message -->
 
-            <p id ="add_after_me"></p>
+            
             <!-- Button -->
             <div class="form-group">
               <label class="col-md-4 control-label"></label>
-              <div class="col-md-4"><br>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" onclick="handleOnSubmit()" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                <div class="col-md-4"><br>
+                <button type="button"  onclick="handleOnSubmit()" class="btn btn-warning" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>
+                </div>
               </div>
             </div>
             
             </fieldset>
             </form>
             </div>
-                </div><!-- /.container -->
-        </main> -->
+            </div><!-- /.container -->
+        </main>
         <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
