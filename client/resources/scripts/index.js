@@ -11,6 +11,7 @@ function handleOnLoad(){
     });
 }
 
+//get user from local storage
 function getCurrentUser(){
     const str = localStorage.getItem("User");
 
@@ -21,15 +22,21 @@ function getCurrentUser(){
     return userObj;
 }
 
+//used to set user data to local storage
 function userOnSubmit(){
-    var password = document.getElementById("password").value;
     var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    console.log(email);
+    var user = getUserID(email, password);
 
-    getUserID(email, password);
-    window.location.href="../userdashboard.html;
+    saveCurrentUser(user);
+
+    //should redirect to userdashborad page
+    window.location.href="../userdashboard.html";
 
 }
 
+// used to get the information of a user from the controller 
 function getUserID(username, password){
     const customerUrl = "https://localhost:5001/api/Customer"; 
     console.log (customerUrl);
@@ -39,19 +46,21 @@ function getUserID(username, password){
     fetch(customerUrl).then(function(response){
         return response.json();
     }).then(function(json){
+        var user;
         json.forEach(element=>
             {
                 if((element.username == username)&&(element.password == password)){
-                    var user ;
+                    user = element ;
                 }
             });
-        
+        return user 
     }).catch(function(error){
         console.log(error);
     });
 
 }
 
+// saves user to local storage 
 function saveCurrentUser(user){
     const userObj = JSON.stringify(user);
     localStorage.setItem("User",userObj);
@@ -70,23 +79,14 @@ function displayClothingTable(json){
     
     var dataTable = document.getElementById("dataTable");
 
-    var html = "<table id=\"table_id\" class=\"display\"><thead><tr><th>Item Name</th><th>Size</th><th>Link to Item</th></tr></thead><tbody>";
+    var html = "<table id=\"table_id\" class=\"display\"><thead><tr><th>Item Name</th><th>Size</th><th>Link to Item</th><th>Price</th></tr></thead><tbody>";
+    //type is the placeholder for name element link needs an a tag
     clothing.forEach(element => {
-        html += `<tr><td>${element.type}</td><td>${element.size}</td></tr><td>${element.link}</td></tr>`;
+        html += `<tr><td>${element.type}</td><td>${element.size}</td><td>${element.link}</td><td>${element.price}</td></tr>`;
     });
     html+="</tbody></table>";
     dataTable.innerHTML = html;
     
-    
-    
-    
-    // var html = "<table id = \"postTable\" class =\"table table-success table-striped\" id=><tr><th>ID</th><th>Post</th></tr>";
-    // json.forEach(post => {
-    //     html += `<tr><td>${post.id}</td><td>${post.message}</td></tr>`;
-    // });
-    // html += "</table>";
-    // dataTable.innerHTML = html;
-    // console.log(json)
 }
 
 function handleOnSubmit(){
