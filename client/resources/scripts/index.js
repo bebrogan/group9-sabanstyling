@@ -32,7 +32,7 @@ function userOnSubmit(){
     saveCurrentUser(user);
 
     //should redirect to userdashborad page
-    window.location.href="../userdashboard.html";
+    window.location.href="../client/userdashboard.html";
 
 }
 
@@ -106,7 +106,7 @@ function handleOnSubmit(){
         Why : why,
         Password : password
     }
-    setCurrentUser(customer);
+    // setCurrentUser(customer);
     PostCustomer(customer); 
 }
 
