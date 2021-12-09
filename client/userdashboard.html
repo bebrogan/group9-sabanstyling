@@ -7,17 +7,19 @@
     
     <link rel="icon" type="image/x-icon" href="assets\img\saban-favicon.ico" />
         <!-- Font Awesome icons (free version)-->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+  
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+        
 
 </head>
-<body onload="handleOnLoad()" >
+<body onload = "handleOnLoad()">
     <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -36,6 +38,7 @@
                 </div>
             </div>
         </nav>
+    
    <!-- Page Header-->
    <header class="masthead" style="background-image: url('https://th.bing.com/th/id/R.83a85d6c748b4717702632c7a8ce7e79?rik=isjdWiFUsgfhVg&pid=ImgRaw&r=0')">
         <div class="container position-relative px-4 px-lg-5">
@@ -49,21 +52,58 @@
             </div>
         </div>
     </header>
-    <div class = "row">
-        <div class = "col-md-12">
-            <div id = dataTable>
+   <!-- Text input-->
+                   <div class="form-group">
+              <label class="col-md-4 control-label">Recommendation Link</label>  
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+              <input name="link" placeholder="Insert a similar type of clothing you would like." class="form-control"  type="text" id="link" data-sb-validations="required">
+                </div>
+              </div>
+            </div>
+            
+            
 
+            <!-- desc -->
+            <div class="form-group">
+              <label class="col-md-4 control-label">Describe what type of clothing you want.</label>  
+                <div class="col-md-4 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+              <input name="desc" placeholder="Insert description here." class="form-control" type="text" id="desc" data-sb-validations="required">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+                
+                  <div class="col-md-4"><br>
+                  <button type="button"  onclick="submitRec()" class="btn btn-warning" >SUBMIT <span class="glyphicon glyphicon-send"></span></button>
+                  </div>
+                </div>
+              </div>
+    </div>
+        <div class = "row">
+            <div class = "col-md-12">
+                <div id = dataTable>
+                
+                </div>
             </div>
         </div>
-    </div>
 
+    
+
+  
+  
 </body>
 <script>
     $(document).ready( function () {
     $('#dataTable').DataTable();
-} );
+
+    } );
 // let table = new DataTable('#dataTable', {
     
 // });
 </script>
+<script src="resources/scripts/index.js"></script>
 </html>

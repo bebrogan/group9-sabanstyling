@@ -32,7 +32,7 @@ namespace api.Data
         {
             db.Open(); 
 
-            string sql = "SELECT * from recommendation ORDER BY 'id' desc"; 
+            string sql = "SELECT * from recommendation ORDER BY 'recID' desc"; 
 
             List<ExpandoObject> results = db.Select(sql); 
 

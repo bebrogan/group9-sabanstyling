@@ -8,6 +8,7 @@
         <title>Sign Up / Log In</title>
         <link rel="icon" type="image/x-icon" href="assets\img\saban-favicon.ico" />
         <!-- Font Awesome icons (free version)-->
+        
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
@@ -17,7 +18,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body onload = "handleOnLoad()">
+    <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
@@ -42,8 +43,8 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="page-heading">
-                            <h1>Register</h1>
-                            <span class="subheading">Register your account here.</span>
+                            <h1>Sign in or Register</h1>
+                            <span class="subheading">Sign-in/Create an account.</span>
                         </div>
                     </div>
                 </div>
@@ -91,10 +92,10 @@
                     <input type="submit" onclick="userOnSubmit()" value="Submit">
                 </form> -->
                 <div class="input-field">
-                  <input id="email" type="email" placeholder="Email" autocomplete="nope">
+                  <input id="email1" type="email" placeholder="Email" autocomplete="nope">
                 </div>
                 <div class="input-field">
-                  <input id = "password" type="password" placeholder="Password" autocomplete="new-password" aria-autocomplete="list">
+                  <input id = "password1" type="password" placeholder="Password" autocomplete="new-password" aria-autocomplete="list">
                 </div>
         
         
@@ -116,7 +117,7 @@
               <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input  name="first_name" placeholder="First Name" class="form-control"  type="text" id="firstName">
+              <input  name="first_name" placeholder="First Name" class="form-control"  type="text" id="firstName" data-sb-validations="required">
                 </div>
               </div>
             </div>
@@ -128,7 +129,7 @@
                 <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input name="last_name" placeholder="Last Name" class="form-control"  type="text" id="lastName">
+              <input name="last_name" placeholder="Last Name" class="form-control"  type="text" id="lastName" data-sb-validations="required">
                 </div>
               </div>
             </div>
@@ -153,7 +154,7 @@
                 <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-              <input name="user_password" placeholder="Password" class="form-control"  type="password" id="password">
+              <input name="user_password" placeholder="Password" class="form-control"  type="password" id="password" data-sb-validations="required">
                 </div>
               </div>
             </div>
@@ -176,7 +177,7 @@
                 <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-              <input name="email" placeholder="E-Mail Address" class="form-control"  type="text" id="email">
+              <input name="email" placeholder="E-Mail Address" class="form-control"  type="text" id="email" data-sb-validations="required">
                 </div>
               </div>
             </div>
@@ -189,7 +190,7 @@
                 <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-              <input name="contact_no" placeholder="(205)xxx-xxxx" class="form-control" type="text" id="phone">
+              <input name="contact_no" placeholder="(205)xxx-xxxx" class="form-control" type="text" id="phone" data-sb-validations="required">
                 </div>
               </div>
             </div>
@@ -200,7 +201,7 @@
                 <div class="col-md-4 inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-              <input name="why" placeholder="What made you want to work with us?" class="form-control" type="text" id="why">
+              <input name="why" placeholder="What made you want to work with us?" class="form-control" type="text" id="why" data-sb-validations="required">
                 </div>
               </div>
             </div>
@@ -208,7 +209,7 @@
             <!-- Select Basic -->
             
             <!-- Success message -->
-
+           
             
             <!-- Button -->
             <div class="form-group">
@@ -219,6 +220,10 @@
               </div>
             </div>
             
+            <div id = "success"  visibility: hidden  class="alert alert-success" role="alert">
+              Successfully registered!
+            </div>
+
             </fieldset>
             </form>
             </div>
